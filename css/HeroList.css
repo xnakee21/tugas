@@ -1,0 +1,75 @@
+.herolist-page { padding-bottom: 5rem; }
+
+.filter-panel {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px; padding: 1.6rem;
+  margin-bottom: 1.6rem;
+  display: flex; flex-direction: column; gap: 1.4rem;
+  position: relative; overflow: hidden;
+}
+.filter-panel::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--blue-neon) 0%, var(--purple-neon) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.search-box { position: relative; display: flex; align-items: center; }
+.search-icon { position: absolute; left: 16px; font-size: 1rem; pointer-events: none; color: var(--text-faint); }
+.search-input {
+  width: 100%; padding: 13px 44px 13px 48px;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px; color: var(--text-bright);
+  font-family: 'Barlow', sans-serif; font-size: 0.95rem; outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus { border-color: rgba(0,212,255,0.4); box-shadow: 0 0 0 3px rgba(0,212,255,0.07); }
+.search-input::placeholder { color: var(--text-faint); font-style: italic; }
+.clear-search { position: absolute; right: 14px; background: none; border: none; color: var(--text-faint); cursor: pointer; font-size: 1rem; transition: color 0.2s; }
+.clear-search:hover { color: var(--red-neon); }
+
+.filter-row { display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: flex-start; }
+.filter-group { display: flex; flex-direction: column; gap: 8px; }
+.filter-label {
+  font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-faint);
+}
+.filter-buttons { display: flex; flex-wrap: wrap; gap: 7px; }
+.filter-btn {
+  padding: 5px 15px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px; color: var(--text-dim);
+  font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px; text-transform: uppercase;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.filter-btn:hover { border-color: rgba(0,212,255,0.3); color: var(--text-bright); background: rgba(0,212,255,0.06); }
+.filter-btn.active { background: rgba(0,212,255,0.12); border-color: rgba(0,212,255,0.45); color: var(--blue-neon); }
+.tier-btn-s.active { background: rgba(255,107,53,0.12); border-color: rgba(255,107,53,0.45); color: var(--tier-s); }
+.tier-btn-a.active { background: rgba(255,215,0,0.12); border-color: rgba(255,215,0,0.45); color: var(--tier-a); }
+.tier-btn-b.active { background: rgba(0,255,136,0.12); border-color: rgba(0,255,136,0.45); color: var(--tier-b); }
+
+.filter-sort { margin-left: auto; }
+.sort-select {
+  padding: 7px 14px;
+  background: var(--bg-secondary); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px; color: var(--text-dim);
+  font-family: 'Barlow', sans-serif; font-size: 0.85rem; cursor: pointer; outline: none;
+}
+
+.results-info { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.6rem; }
+.results-count { font-family: 'Rajdhani', sans-serif; font-size: 0.8rem; color: var(--text-faint); letter-spacing: 1.5px; text-transform: uppercase; }
+.reset-filters { background: none; border: 1px solid rgba(255,45,85,0.3); border-radius: 3px; color: var(--red-neon); font-size: 0.75rem; padding: 4px 14px; cursor: pointer; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.reset-filters:hover { background: rgba(255,45,85,0.1); border-color: rgba(255,45,85,0.55); }
+
+.hero-grid-full { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.no-results { display: flex; flex-direction: column; align-items: center; padding: 5rem; text-align: center; gap: 1rem; }
+.no-results-icon { font-size: 4rem; opacity: 0.4; }
+.no-results h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--text-dim); }
+.no-results p { color: var(--text-faint); font-size: 0.9rem; }
+
+@media (max-width: 1024px) { .hero-grid-full { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 768px) { .hero-grid-full { grid-template-columns: repeat(2,1fr); } .filter-sort { margin-left: 0; } }
+@media (max-width: 480px) { .hero-grid-full { grid-template-columns: 1fr; } }

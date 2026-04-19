@@ -1,0 +1,22 @@
+.footer { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--blue-neon) 30%, var(--purple-neon) 70%, transparent); opacity: 0.5; }
+.footer-container { max-width: 1220px; margin: 0 auto; padding: 3.5rem 24px 2rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+.footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.footer-logo-ml {
+  font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 900; letter-spacing: 4px;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-mid));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.footer-logo-guide { font-family: 'Barlow', sans-serif; font-size: 0.55rem; letter-spacing: 5px; color: var(--blue-neon); display: block; opacity: 0.7; text-transform: uppercase; }
+.footer-desc { color: var(--text-dim); font-size: 0.88rem; line-height: 1.75; font-style: italic; }
+.footer-col-title { font-family: 'Cinzel', serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-mid); margin-bottom: 1rem; padding-bottom: 8px; border-bottom: 1px solid rgba(255,215,0,0.1); }
+.footer-links-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-links-col span { color: var(--text-dim); font-size: 0.87rem; transition: all 0.2s; cursor: pointer; display: block; padding: 2px 0; }
+.footer-links-col span:hover { color: var(--blue-neon); padding-left: 8px; }
+.footer-disclaimer { color: var(--text-faint); font-size: 0.78rem; line-height: 1.65; font-style: italic; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.8rem; text-align: center; }
+.footer-bottom p { color: var(--text-faint); font-size: 0.82rem; }
+.footer-sub { margin-top: 5px !important; font-size: 0.7rem !important; opacity: 0.45; }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1/-1; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }

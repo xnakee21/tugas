@@ -1,0 +1,72 @@
+.tierlist-page { padding-bottom: 5rem; }
+.tier-note {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(0,212,255,0.04); border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 8px; padding: 1rem 1.3rem; margin-bottom: 2.5rem;
+  position: relative; overflow: hidden;
+}
+.tier-note::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, var(--blue-neon), transparent); opacity: 0.5; }
+.note-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.tier-note p { color: var(--text-dim); font-size: 0.88rem; line-height: 1.6; font-style: italic; }
+
+.tier-table { display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
+.tier-row {
+  display: flex; align-items: stretch;
+  background: var(--tier-bg, rgba(255,255,255,0.03));
+  border: 1px solid var(--tier-border, rgba(255,255,255,0.07));
+  border-radius: 10px; overflow: hidden;
+  transition: box-shadow 0.25s; position: relative;
+}
+.tier-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--tier-color); }
+.tier-row:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+
+.tier-label-col {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 1.3rem 1.1rem; min-width: 100px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.2);
+}
+.tier-badge-big {
+  width: 58px; height: 58px; display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: var(--tier-color); color: #000;
+  font-family: 'Orbitron', sans-serif; font-size: 1.7rem; font-weight: 900;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 20px var(--tier-color);
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.tier-heroes-col { display: flex; flex-wrap: wrap; gap: 10px; padding: 1.1rem 1.4rem; align-items: center; flex: 1; }
+.tier-hero-item {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 8px 6px; border-radius: 8px; cursor: pointer;
+  transition: all 0.22s; border: 1px solid transparent;
+}
+.tier-hero-item:hover { background: rgba(255,255,255,0.04); border-color: var(--tier-color); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+.tier-hero-img {
+  width: 65px; height: 65px; border-radius: 9px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08); position: relative;
+}
+.tier-hero-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(to top, rgba(0,0,0,0.5), transparent); }
+.tier-hero-item:hover .tier-hero-img { border-color: var(--tier-color); box-shadow: 0 0 15px var(--tier-color); }
+.tier-hero-img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.2); }
+.tier-hero-info { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.tier-hero-name { font-family: 'Rajdhani', sans-serif; font-size: 0.76rem; font-weight: 700; color: var(--text-mid); white-space: nowrap; }
+.no-hero-tier { color: var(--text-faint); font-size: 0.85rem; font-style: italic; }
+
+.tier-legend { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 1.6rem; }
+.legend-title { font-family: 'Cinzel', serif; font-size: 0.9rem; font-weight: 700; color: var(--text-mid); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+.legend-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+.legend-item { display: flex; align-items: center; gap: 12px; }
+.legend-tier {
+  width: 36px; height: 36px; border-radius: 5px; background: var(--tier-color);
+  color: #000; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.legend-desc { font-size: 0.82rem; color: var(--text-dim); line-height: 1.4; }
+
+@media (max-width: 768px) {
+  .tier-label-col { min-width: 72px; padding: 1rem 0.5rem; }
+  .tier-badge-big { width: 46px; height: 46px; font-size: 1.2rem; }
+  .tier-hero-img { width: 54px; height: 54px; }
+  .legend-grid { grid-template-columns: repeat(2,1fr); }
+}

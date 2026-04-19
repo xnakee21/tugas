@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Orbitron:wght@700;900&display=swap');
+
+:root {
+  --bg-deep: #03050d;
+  --bg-primary: #05071a;
+  --bg-secondary: #080b1f;
+  --bg-card: #0c1028;
+  --bg-card-hover: #0f1430;
+  --gold-bright: #ffd700;
+  --gold-mid: #c8a840;
+  --gold-dark: #8b6914;
+  --blue-neon: #00d4ff;
+  --blue-mid: #0099cc;
+  --purple-neon: #c44bff;
+  --purple-mid: #8a2be2;
+  --red-neon: #ff2d55;
+  --green-neon: #00ff88;
+  --cyan-soft: #7fffd4;
+  --text-bright: #f0f4ff;
+  --text-mid: #c8d0e8;
+  --text-dim: #6875a0;
+  --text-faint: #2e3660;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-glow-blue: rgba(0,212,255,0.25);
+  --border-glow-gold: rgba(255,215,0,0.3);
+  --tier-s: #ff6b35;
+  --tier-a: #ffd700;
+  --tier-b: #00ff88;
+  --tier-c: #00d4ff;
+  --role-mm: #ffd700;
+  --role-tk: #00d4ff;
+  --role-mg: #c44bff;
+  --role-as: #ff2d55;
+  --role-ft: #ff6b35;
+  --role-sp: #00ff88;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-bright);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── EPIC BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 0%, rgba(0,80,180,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 0% 50%, rgba(0,212,255,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 100% 50%, rgba(196,75,255,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,215,0,0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #020510 0%, #03050d 40%, #050310 100%);
+  pointer-events: none;
+}
+
+/* Animated nebula layers */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    radial-gradient(ellipse 40% 30% at 20% 20%, rgba(0,212,255,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 25% at 80% 70%, rgba(196,75,255,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 25% 20% at 60% 40%, rgba(255,107,53,0.04) 0%, transparent 70%);
+  animation: nebulaPulse 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes nebulaPulse {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ── STAR FIELD ── */
+.star-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 5% 8%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 25% 5%, rgba(0,212,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 18%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 12%, rgba(255,215,0,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 28%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 8%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 85% 20%, rgba(196,75,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 45%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 52%, rgba(0,212,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 68%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 48%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 62%, rgba(255,215,0,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 80% 45%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 58%, rgba(196,75,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 8% 78%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 18% 85%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 28% 92%, rgba(0,212,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 38% 80%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 48% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 58% 75%, rgba(255,215,0,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 68% 90%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 78% 82%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 95%, rgba(196,75,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 98% 72%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 3% 95%, rgba(255,255,255,0.4) 0%, transparent 100%);
+  animation: starTwinkle 6s ease-in-out infinite alternate;
+}
+
+.star-field::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 32%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 22% 15%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 33% 42%, rgba(0,212,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 43% 25%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 52% 55%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 62% 38%, rgba(255,215,0,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 18%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 48%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 92% 30%, rgba(196,75,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 7% 65%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 17% 72%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 27% 85%, rgba(0,212,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 37% 62%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 47% 78%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 57% 92%, rgba(255,215,0,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 70%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 77% 88%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 87% 65%, rgba(196,75,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 97% 88%, rgba(255,255,255,0.3) 0%, transparent 100%);
+  animation: starTwinkle 9s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.6; }
+}
+
+/* ── MAGIC PARTICLES ── */
+.magic-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+  opacity: 0;
+}
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+
+/* ── GRID OVERLAY ── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ── SCANLINE EFFECT ── */
+.scanline {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(196,75,255,0.6), transparent);
+  z-index: 0;
+  pointer-events: none;
+  animation: scanDown 15s linear infinite;
+  opacity: 0.4;
+}
+@keyframes scanDown { from { top: -2px; } to { top: 100vh; } }
+
+/* ── CORNER DECORATIONS ── */
+.corner-deco {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+}
+.corner-deco-tl { top: 0; left: 0; width: 300px; height: 300px;
+  background: radial-gradient(circle at 0% 0%, rgba(0,212,255,0.4), transparent 70%); }
+.corner-deco-br { bottom: 0; right: 0; width: 300px; height: 300px;
+  background: radial-gradient(circle at 100% 100%, rgba(196,75,255,0.4), transparent 70%); }
+
+.app { display: flex; flex-direction: column; min-height: 100vh; position: relative; z-index: 1; }
+.main-content { flex: 1; padding-top: 72px; }
+.container { max-width: 1220px; margin: 0 auto; padding: 0 24px; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, var(--blue-neon), var(--purple-neon)); border-radius: 3px; }
+
+/* ── TYPOGRAPHY ── */
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 1.9rem; font-weight: 700;
+  color: var(--text-bright); letter-spacing: 3px; text-transform: uppercase;
+  position: relative; display: inline-flex; align-items: center; gap: 14px;
+  margin-bottom: 2.5rem;
+}
+.section-heading::after { content: ''; display: block; width: 80px; height: 2px; background: linear-gradient(90deg, var(--gold-bright), transparent); flex-shrink: 0; }
+.section-heading .accent { color: var(--gold-bright); }
+.section-title { font-family: 'Cinzel', serif; font-size: 1.9rem; font-weight: 700; color: var(--text-bright); letter-spacing: 2px; display: inline-block; margin-bottom: 2rem; }
+
+/* ── BADGES ── */
+.badge { display: inline-flex; align-items: center; justify-content: center; padding: 3px 10px; border-radius: 3px; font-family: 'Rajdhani', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.role-marksman { background: rgba(255,215,0,0.1); color: var(--role-mm); border: 1px solid rgba(255,215,0,0.3); }
+.role-tank { background: rgba(0,212,255,0.1); color: var(--role-tk); border: 1px solid rgba(0,212,255,0.3); }
+.role-mage { background: rgba(196,75,255,0.1); color: var(--role-mg); border: 1px solid rgba(196,75,255,0.3); }
+.role-assassin { background: rgba(255,45,85,0.1); color: var(--role-as); border: 1px solid rgba(255,45,85,0.3); }
+.role-fighter { background: rgba(255,107,53,0.1); color: var(--role-ft); border: 1px solid rgba(255,107,53,0.3); }
+.role-support { background: rgba(0,255,136,0.1); color: var(--role-sp); border: 1px solid rgba(0,255,136,0.3); }
+.tier-s { background: rgba(255,107,53,0.15); color: var(--tier-s); border: 1px solid rgba(255,107,53,0.45); font-size: 0.72rem; text-shadow: 0 0 10px rgba(255,107,53,0.5); }
+.tier-a { background: rgba(255,215,0,0.15); color: var(--tier-a); border: 1px solid rgba(255,215,0,0.45); font-size: 0.72rem; text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+.tier-b { background: rgba(0,255,136,0.15); color: var(--tier-b); border: 1px solid rgba(0,255,136,0.45); font-size: 0.72rem; }
+.tier-c { background: rgba(0,212,255,0.15); color: var(--tier-c); border: 1px solid rgba(0,212,255,0.45); font-size: 0.72rem; }
+
+/* ── BUTTONS ── */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 30px; font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border: none; text-decoration: none; position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.btn::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0); transition: background 0.2s; }
+.btn:hover::after { background: rgba(255,255,255,0.06); }
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background: linear-gradient(135deg, #0066cc, #8a2be2); color: #fff; clip-path: polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%); box-shadow: 0 6px 20px rgba(0,100,200,0.4); }
+.btn-primary:hover { box-shadow: 0 10px 30px rgba(0,100,200,0.6); }
+.btn-outline { background: transparent; color: var(--gold-bright); border: 1px solid var(--gold-mid); clip-path: polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%); }
+.btn-outline:hover { background: rgba(255,215,0,0.08); box-shadow: 0 6px 20px rgba(255,215,0,0.2); }
+
+/* ── PAGE HEADER ── */
+.page-header { padding: 4rem 0 2.5rem; margin-bottom: 2.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,212,255,0.04) 0%, transparent 100%); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.page-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, var(--blue-neon) 30%, var(--purple-neon) 70%, transparent 100%); opacity: 0.4; }
+.page-header .container { position: relative; z-index: 1; }
+.page-subtitle { color: var(--text-dim); font-size: 0.95rem; margin-top: 6px; font-style: italic; }
+
+.star { color: var(--text-faint); font-size: 0.8rem; }
+.star.filled { color: var(--gold-bright); text-shadow: 0 0 6px rgba(255,215,0,0.6); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shimmer { from { background-position: -200% center; } to { background-position: 200% center; } }
+@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes pulseGlow { 0%,100%{opacity:0.6} 50%{opacity:1} }
+@keyframes scanline { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
+@keyframes rotate360 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.fade-up { animation: fadeUp 0.55s ease forwards; opacity: 0; }
+
+@media (max-width: 768px) {
+  .section-title, .section-heading { font-size: 1.4rem; }
+  .container { padding: 0 16px; }
+}
